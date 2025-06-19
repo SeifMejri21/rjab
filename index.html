@@ -7,10 +7,11 @@
 
   <style>
     :root {
-      --main-color: #004d40;
-      --accent-color: #00796b;
-      --bg-color: #fefefe;
+      --main-color: #37240c;       /* Warm brown for titles */
+      --accent-color: #00796b;     /* Teal-green for links */
+      --bg-color: #f5ead4;         /* Cream background */
       --card-bg: #ffffff;
+      --contact-bg: #f8f1e3;       /* Contact box cream color */
       --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
@@ -41,18 +42,18 @@
     }
 
     .logo {
-        display: block;
-        margin: 0 auto 30px;
-        max-width: 190px;      /* bigger width */
-        height: auto;          /* keep aspect ratio */
-        border-radius: 12px;
-        box-shadow: 0 6px 12px rgba(0, 77, 64, 0.4);
-        transition: transform 0.3s ease;
-        cursor: pointer;
+      display: block;
+      margin: 0 auto 30px;
+      max-width: 190px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 77, 64, 0.4);
+      transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
     .logo:hover {
-        transform: scale(1.05);
+      transform: scale(1.05);
     }
 
     .intro {
@@ -86,22 +87,22 @@
     }
 
     .contact {
-      background-color: #e0f2f1;
+      background-color: var(--contact-bg);  /* Now cream like background */
       padding: 20px;
       border-radius: 12px;
       box-shadow: var(--shadow);
       text-align: center;
+      margin-top: 40px;
     }
 
     .contact img {
-        width: 200px;
-        height: auto;
-        margin-top: 20px;
-        object-fit: contain;
-        border-radius: 0;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      width: 200px;
+      height: auto;
+      margin-top: 20px;
+      object-fit: contain;
+      border-radius: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
     }
-
 
     a {
       color: var(--accent-color);
@@ -134,6 +135,21 @@
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     }
+
+    button.copy-btn {
+      margin-left: 8px;
+      cursor: pointer;
+      padding: 4px 8px;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    button.copy-btn:hover {
+      background-color: #005c50;
+    }
   </style>
 </head>
 
@@ -159,11 +175,11 @@
     <h2>🎯 Want to try Rjab?</h2>
     <p>Find <strong>Othmane Massabi</strong> at the event!</p>
     <p>
-    📞 <strong>+216 94 722 995</strong><br />
-    📧 <span id="email" style="cursor:pointer; color: var(--accent-color); text-decoration: underline;">
+      📞 <strong>+216 94 722 995</strong><br />
+      📧 <span id="email" style="cursor:pointer; color: var(--accent-color); text-decoration: underline;">
         othmane.massabi@gmail.com
-    </span>
-    <button onclick="copyEmail()" style="margin-left:8px; cursor:pointer;">Copy</button>
+      </span>
+      <button onclick="copyEmail()" class="copy-btn">Copy</button>
     </p>
     <img src="othmane.jpg" alt="Othmane" />
   </div>
@@ -173,15 +189,14 @@
     <img id="modal-img" src="" />
   </div>
 
-  <!-- Lightbox Script -->
+  <!-- Scripts -->
   <script>
-
-      function copyEmail() {
-    const emailText = document.getElementById('email').textContent;
-    navigator.clipboard.writeText(emailText)
-      .then(() => alert('Email copied to clipboard!'))
-      .catch(() => alert('Failed to copy email.'));
-         }
+    function copyEmail() {
+      const emailText = document.getElementById('email').textContent;
+      navigator.clipboard.writeText(emailText)
+        .then(() => alert('Email copied to clipboard!'))
+        .catch(() => alert('Failed to copy email.'));
+    }
 
     function openModal(src) {
       const modal = document.getElementById("modal");
